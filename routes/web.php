@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\UtamaController;
+use App\Http\Controllers\AgenController;
+
+Route::get("/", [UtamaController::class, "home"])->name("home");
+Route::get("/about", [UtamaController::class, "about"])->name("about");
+Route::get("/contact", [UtamaController::class, "contact"])->name("contact");
+Route::get("/portofolio", [UtamaController::class, "portofolio"])->name("portofolio");
+Route::get("/team", [UtamaController::class, "team"])->name("team");
+
+Route::get("/agen", [AgenController::class, "agen"])->name("agen");
+Route::post("/agen/proses", [AgenController::class, "proses"])->name("agen_proses");
+
